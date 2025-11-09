@@ -1,0 +1,236 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Modern Asian Fusion Design System */
+
+@layer base {
+  :root {
+    /* Core Background & Text */
+    --background: 0 0% 100%; /* pure white */
+    --foreground: 220 13% 18%; /* dark charcoal */
+
+    /* Modern Color Palette */
+    --fusion-primary: 14 100% 57%; /* vibrant orange */
+    --fusion-primary-light: 24 100% 95%; /* very light orange */
+    --fusion-primary-dark: 14 100% 45%; /* darker orange */
+
+    --fusion-secondary: 171 100% 41%; /* teal */
+    --fusion-secondary-light: 171 100% 95%; /* very light teal */
+    --fusion-secondary-dark: 171 100% 30%; /* darker teal */
+
+    --fusion-accent: 262 83% 58%; /* purple */
+    --fusion-accent-light: 262 83% 95%; /* very light purple */
+    --fusion-accent-dark: 262 83% 45%; /* darker purple */
+
+    --fusion-neutral: 220 13% 91%; /* light gray */
+    --fusion-neutral-dark: 220 13% 69%; /* medium gray */
+    --fusion-dark: 220 13% 18%; /* dark charcoal */
+
+    /* Component Colors */
+    --card: 0 0% 100%;
+    --card-foreground: 220 13% 18%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 13% 18%;
+
+    --primary: 14 100% 57%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 13% 91%;
+    --secondary-foreground: 220 13% 18%;
+
+    --muted: 220 13% 96%;
+    --muted-foreground: 220 9% 46%;
+
+    --accent: 171 100% 41%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 14 100% 57%;
+
+    --radius: 0.5rem;
+
+    /* Modern Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(14 100% 57%) 0%, hsl(171 100% 41%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(220 13% 98%) 100%);
+    --gradient-accent: linear-gradient(120deg, hsl(171 100% 41%) 0%, hsl(262 83% 58%) 100%);
+    --gradient-warm: linear-gradient(135deg, hsl(24 100% 95%) 0%, hsl(14 100% 57%) 100%);
+
+    /* Enhanced Shadows */
+    --shadow-soft: 0 1px 3px 0 hsl(220 13% 18% / 0.1), 0 1px 2px -1px hsl(220 13% 18% / 0.1);
+    --shadow-medium: 0 4px 6px -1px hsl(220 13% 18% / 0.1), 0 2px 4px -2px hsl(220 13% 18% / 0.1);
+    --shadow-large: 0 10px 15px -3px hsl(220 13% 18% / 0.1), 0 4px 6px -4px hsl(220 13% 18% / 0.1);
+    --shadow-glow: 0 0 0 1px hsl(14 100% 57% / 0.05), 0 4px 16px hsl(14 100% 57% / 0.1);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  .dark {
+    --background: 220 13% 9%;
+    --foreground: 220 13% 98%;
+    --card: 220 13% 11%;
+    --card-foreground: 220 13% 98%;
+    --popover: 220 13% 11%;
+    --popover-foreground: 220 13% 98%;
+    --primary: 14 100% 57%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 220 13% 16%;
+    --secondary-foreground: 220 13% 98%;
+    --muted: 220 13% 16%;
+    --muted-foreground: 220 9% 64%;
+    --accent: 171 100% 41%;
+    --accent-foreground: 0 0% 100%;
+    --border: 220 13% 16%;
+    --input: 220 13% 16%;
+    --ring: 14 100% 57%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-inter antialiased;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* Modern Button Styles */
+  .btn-primary {
+    @apply bg-primary text-primary-foreground shadow-medium hover:shadow-large;
+    @apply transition-all duration-300 hover:scale-105 active:scale-95;
+    @apply rounded-lg px-6 py-3 font-semibold;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary text-secondary-foreground border border-border shadow-soft hover:shadow-medium;
+    @apply transition-all duration-300 hover:scale-105 active:scale-95;
+    @apply rounded-lg px-6 py-3 font-semibold;
+  }
+
+  .btn-accent {
+    @apply bg-accent text-accent-foreground shadow-medium hover:shadow-large;
+    @apply transition-all duration-300 hover:scale-105 active:scale-95;
+    @apply rounded-lg px-6 py-3 font-semibold;
+  }
+
+  .btn-outline {
+    @apply border-2 border-primary text-primary bg-transparent hover:bg-primary hover:text-primary-foreground;
+    @apply transition-all duration-300 hover:scale-105 active:scale-95;
+    @apply rounded-lg px-6 py-3 font-semibold;
+  }
+
+  /* Enhanced Components */
+  .hero-gradient {
+    background: var(--gradient-hero);
+  }
+
+  .card-elegant {
+    @apply bg-card border border-border shadow-soft hover:shadow-medium;
+    @apply transition-all duration-300 hover:scale-[1.02];
+    @apply rounded-xl p-6;
+  }
+
+  .text-fusion-primary {
+    color: hsl(var(--fusion-primary));
+  }
+
+  .text-fusion-secondary {
+    color: hsl(var(--fusion-secondary));
+  }
+
+  .text-fusion-accent {
+    color: hsl(var(--fusion-accent));
+  }
+
+  .bg-fusion-primary {
+    background-color: hsl(var(--fusion-primary));
+  }
+
+  .bg-fusion-secondary {
+    background-color: hsl(var(--fusion-secondary));
+  }
+
+  .bg-fusion-accent {
+    background-color: hsl(var(--fusion-accent));
+  }
+
+  .bg-fusion-neutral {
+    background-color: hsl(var(--fusion-neutral));
+  }
+
+  .bg-fusion-dark {
+    background-color: hsl(var(--fusion-dark));
+  }
+
+  /* Navigation Styles */
+  .nav-link {
+    @apply text-foreground hover:text-primary transition-colors duration-300;
+    @apply relative after:absolute after:bottom-0 after:left-0 after:h-0.5;
+    @apply after:w-0 after:bg-primary after:transition-all after:duration-300;
+    @apply hover:after:w-full;
+  }
+
+  .nav-link.active {
+    @apply text-primary after:w-full;
+  }
+}
+
+@layer utilities {
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .animate-fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+  
+  .animate-scale-in {
+    animation: scaleIn 0.6s ease-out forwards;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
