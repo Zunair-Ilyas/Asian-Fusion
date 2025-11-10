@@ -173,7 +173,7 @@ const About = () => {
       <section className="py-20 bg-hero-gradient">
         <div className="container mx-auto px-4 text-center">
           <h1 className="font-playfair text-5xl md:text-6xl font-bold text-white mb-4">
-            About AsianFusion
+            About Asian Fusion
           </h1>
           <p className="text-xl text-white/80 max-w-2xl mx-auto">
             A journey of culinary excellence bringing authentic Asian flavors to your table
@@ -289,33 +289,33 @@ const About = () => {
       </section>
 
       {/* Timeline Section */}
-      <section className="py-20 bg-fusion-dark">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16 animate-fade-in-up">
-            <h2 className="font-playfair text-4xl md:text-5xl font-bold text-fusion-primary mb-4">
-              Our Timeline
-            </h2>
-            <p className="text-lg text-fusion-neutral max-w-2xl mx-auto">
-              25 years of growth, tradition, and community
-            </p>
-          </div>
+      {/*<section className="py-20 bg-fusion-dark">*/}
+      {/*  <div className="container mx-auto px-4">*/}
+      {/*    <div className="text-center mb-16 animate-fade-in-up">*/}
+      {/*      <h2 className="font-playfair text-4xl md:text-5xl font-bold text-fusion-primary mb-4">*/}
+      {/*        Our Timeline*/}
+      {/*      </h2>*/}
+      {/*      <p className="text-lg text-fusion-neutral max-w-2xl mx-auto">*/}
+      {/*        25 years of growth, tradition, and community*/}
+      {/*      </p>*/}
+      {/*    </div>*/}
 
-          <div className="max-w-4xl mx-auto">
-            {timeline.map((item, index) => (
-              <div key={index} className="flex items-center mb-8 animate-fade-in-up" style={{ animationDelay: `${index * 0.2}s` }}>
-                <div className="flex-shrink-0 w-24 text-right mr-8">
-                  <span className="text-2xl font-bold text-fusion-primary">{item.year}</span>
-                </div>
-                <div className="flex-shrink-0 w-4 h-4 bg-fusion-primary rounded-full mr-8"></div>
-                <div className="flex-1">
-                  <h3 className="text-xl font-semibold text-white mb-2">{item.title}</h3>
-                  <p className="text-fusion-neutral">{item.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/*    <div className="max-w-4xl mx-auto">*/}
+      {/*      {timeline.map((item, index) => (*/}
+      {/*        <div key={index} className="flex items-center mb-8 animate-fade-in-up" style={{ animationDelay: `${index * 0.2}s` }}>*/}
+      {/*          <div className="flex-shrink-0 w-24 text-right mr-8">*/}
+      {/*            <span className="text-2xl font-bold text-fusion-primary">{item.year}</span>*/}
+      {/*          </div>*/}
+      {/*          <div className="flex-shrink-0 w-4 h-4 bg-fusion-primary rounded-full mr-8"></div>*/}
+      {/*          <div className="flex-1">*/}
+      {/*            <h3 className="text-xl font-semibold text-white mb-2">{item.title}</h3>*/}
+      {/*            <p className="text-fusion-neutral">{item.description}</p>*/}
+      {/*          </div>*/}
+      {/*        </div>*/}
+      {/*      ))}*/}
+      {/*    </div>*/}
+      {/*  </div>*/}
+      {/*</section>*/}
 
       {/* Contact Section */}
       <section className="py-20 bg-background">

@@ -140,7 +140,7 @@ const Footer = () => {
                 <span className="text-white font-bold text-sm">AF</span>
               </div>
               <span className="font-playfair text-xl font-bold text-fusion-primary">
-                AsianFusion
+                Asian Fusion
               </span>
             </div>
             <p className="text-sm text-fusion-neutral leading-relaxed">
@@ -152,7 +152,7 @@ const Footer = () => {
               <div className="flex space-x-4">
                 {/* Facebook */}
                 <a
-                  href={contactInfo?.social_links?.facebook || "#"}
+                  href={contactInfo?.social_links?.facebook || "https://www.facebook.com/profile.php?id=61554765050300&mibextid=9R9pXO"}
                   className="text-fusion-neutral hover:text-fusion-primary transition-colors"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -162,7 +162,7 @@ const Footer = () => {
                 </a>
                 {/* Google (custom icon) */}
                 <a
-                  href={contactInfo?.social_links?.google || "#"}
+                  href={contactInfo?.social_links?.google || "https://www.google.com/maps/place/Asian+Fusion/@-37.6957024,176.1105458,17z/data=!3m1!4b1!4m6!3m5!1s0x6d6ddbce76893c89:0x6d674c3d8a9bb567!8m2!3d-37.6957024!4d176.1105458!16s%2Fg%2F11vlz6skm2?entry=ttu&g_ep=EgoyMDI1MTAwOC4wIKXMDSoASAFQAw%3D%3D"}
                   className="hover:opacity-80 transition-opacity"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -171,15 +171,15 @@ const Footer = () => {
                   <GoogleIcon className="h-5 w-5 text-fusion-neutral hover:text-fusion-primary transition-colors" />
                 </a>
                 {/* TripAdvisor */}
-                <a
-                  href={contactInfo?.social_links?.tripadvisor || "#"}
-                  className="text-fusion-neutral hover:text-fusion-primary transition-colors"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="TripAdvisor"
-                >
-                  <img src={tripAdvisor} alt="TripAdvisor" className="h-5 w-5"/>
-                </a>
+                {/*<a*/}
+                {/*  href={contactInfo?.social_links?.tripadvisor || "#"}*/}
+                {/*  className="text-fusion-neutral hover:text-fusion-primary transition-colors"*/}
+                {/*  target="_blank"*/}
+                {/*  rel="noopener noreferrer"*/}
+                {/*  aria-label="TripAdvisor"*/}
+                {/*>*/}
+                {/*  <img src={tripAdvisor} alt="TripAdvisor" className="h-5 w-5"/>*/}
+                {/*</a>*/}
               </div>
             </div>
           </div>
@@ -270,16 +270,16 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t border-fusion-neutral-dark/20 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-sm text-fusion-neutral">
-            © {currentYear} AsianFusion. All rights reserved.
+            © {currentYear} Asian Fusion. All rights reserved.
           </p>
-          <div className="flex space-x-6 mt-4 md:mt-0">
-            <a href="#" className="text-sm text-fusion-neutral hover:text-fusion-primary transition-colors">
-              Privacy Policy
-            </a>
-            <a href="#" className="text-sm text-fusion-neutral hover:text-fusion-primary transition-colors">
-              Terms of Service
-            </a>
-          </div>
+          {/*<div className="flex space-x-6 mt-4 md:mt-0">*/}
+          {/*  <a href="#" className="text-sm text-fusion-neutral hover:text-fusion-primary transition-colors">*/}
+          {/*    Privacy Policy*/}
+          {/*  </a>*/}
+          {/*  <a href="#" className="text-sm text-fusion-neutral hover:text-fusion-primary transition-colors">*/}
+          {/*    Terms of Service*/}
+          {/*  </a>*/}
+          {/*</div>*/}
         </div>
       </div>
     </footer>

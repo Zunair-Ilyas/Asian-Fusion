@@ -8,7 +8,8 @@ import { useToast } from "@/hooks/use-toast";
 // import heroImage from "@/assets/hero-thai-dishes.jpg";
 import main_photo from '/main_photo.jpg'
 // import restaurantInterior from "@/assets/restaurant-interior.jpg";
-import gong_on_fire from '/gong_on_fire.jpg'
+// import gong_on_fire from '/gong_on_fire.jpg'
+import pic_01 from "../assets/pic_01.jpg"
 
 interface Testimonial {
   id: string;
@@ -190,10 +191,10 @@ const Index = () => {
                 </Link>
               </Button>
               <Button className="btn-accent" size="xl">
-                <a href="https://www.ubereats.com/store/easygo-thai-restaurant-and-takeaways/KpMs6bO6RsCV6m8RKZRVHw?diningMode=DELIVERY&pl=JTdCJTIyYWRkcmVzcyUyMiUzQSUyMjQ5MyUyMEhhbXB0b24lMjBTdCUyMiUyQyUyMnJlZmVyZW5jZSUyMiUzQSUyMkNoSUpNWXRESXlkdjFtb1JKbW83YWJiLTExdyUyMiUyQyUyMnJlZmVyZW5jZVR5cGUlMjIlM0ElMjJnb29nbGVfcGxhY2VzJTIyJTJDJTIybGF0aXR1ZGUlMjIlM0EtMzcuOTMyNjE3MyUyQyUyMmxvbmdpdHVkZSUyMiUzQTE0NS4wMDMxMTc1JTdE">Order Delivery</a>
+                <a href="https://www.ubereats.com/store/asian-fusion/SI3nHm9vUZOSRgWETTbP4w">Order Delivery</a>
               </Button>
               <Button className="btn-outline" size="xl">
-                <a href="https://www.foodbooking.com/ordering/restaurant/menu?restaurant_uid=84a846e1-57d7-448b-be3b-bdb68a484d17">Order Pickup</a>
+                <a href="https://order.asianfusion.nz/products">Order Pickup</a>
               </Button>
             </div>
           </div>
@@ -286,7 +287,7 @@ const Index = () => {
             </div>
             <div className="animate-scale-in">
               <img
-                  src={gong_on_fire}
+                  src={pic_01}
                   alt="AsianFusion Restaurant Interior"
                   className="rounded-lg shadow-large w-full h-auto"
               />
@@ -296,38 +297,38 @@ const Index = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-20 bg-fusion-secondary-light/20">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16 animate-fade-in-up">
-            <h2 className="font-playfair text-4xl md:text-5xl font-bold text-foreground mb-4">
-              What Our <span className="text-fusion-primary">Customers Say</span>
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Don't just take our word for it - hear from our satisfied customers
-            </p>
-          </div>
+      {/*<section className="py-20 bg-fusion-secondary-light/20">*/}
+      {/*  <div className="container mx-auto px-4">*/}
+      {/*    <div className="text-center mb-16 animate-fade-in-up">*/}
+      {/*      <h2 className="font-playfair text-4xl md:text-5xl font-bold text-foreground mb-4">*/}
+      {/*        What Our <span className="text-fusion-primary">Customers Say</span>*/}
+      {/*      </h2>*/}
+      {/*      <p className="text-lg text-muted-foreground max-w-2xl mx-auto">*/}
+      {/*        Don't just take our word for it - hear from our satisfied customers*/}
+      {/*      </p>*/}
+      {/*    </div>*/}
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <Card key={testimonial.id} className="card-elegant animate-scale-in" style={{ animationDelay: `${index * 0.2}s` }}>
-                <CardContent className="p-6">
-                  <div className="flex mb-4">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="h-5 w-5 text-fusion-primary fill-current" />
-                    ))}
-                  </div>
-                  <p className="text-muted-foreground mb-4 italic">
-                    "{testimonial.text}"
-                  </p>
-                  <div className="font-semibold text-foreground">
-                    - {testimonial.name}
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/*    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">*/}
+      {/*      {testimonials.map((testimonial, index) => (*/}
+      {/*        <Card key={testimonial.id} className="card-elegant animate-scale-in" style={{ animationDelay: `${index * 0.2}s` }}>*/}
+      {/*          <CardContent className="p-6">*/}
+      {/*            <div className="flex mb-4">*/}
+      {/*              {[...Array(testimonial.rating)].map((_, i) => (*/}
+      {/*                <Star key={i} className="h-5 w-5 text-fusion-primary fill-current" />*/}
+      {/*              ))}*/}
+      {/*            </div>*/}
+      {/*            <p className="text-muted-foreground mb-4 italic">*/}
+      {/*              "{testimonial.text}"*/}
+      {/*            </p>*/}
+      {/*            <div className="font-semibold text-foreground">*/}
+      {/*              - {testimonial.name}*/}
+      {/*            </div>*/}
+      {/*          </CardContent>*/}
+      {/*        </Card>*/}
+      {/*      ))}*/}
+      {/*    </div>*/}
+      {/*  </div>*/}
+      {/*</section>*/}
 
       {/* CTA Section */}
       <section className="py-20 bg-hero-gradient">
