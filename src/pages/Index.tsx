@@ -338,7 +338,7 @@ const Index = () => {
               Ready to Experience Asian Excellence?
             </h2>
             <p className="text-xl text-white/80 mb-8">
-              Visit us today or order online for an authentic Asian dining experience
+              Visit us today or order online for an authentic Asian experience
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button className="btn-secondary" size="xl" asChild>
