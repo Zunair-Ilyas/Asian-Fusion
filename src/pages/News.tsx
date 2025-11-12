@@ -258,7 +258,7 @@ const News = () => {
             News & Events
           </h1>
           <p className="text-xl text-thai-charcoal/80 max-w-2xl mx-auto">
-            Stay updated with the latest happenings at Easy Go Thai
+            Stay updated with the latest happenings at Asian Fusion
           </p>
         </div>
       </section>

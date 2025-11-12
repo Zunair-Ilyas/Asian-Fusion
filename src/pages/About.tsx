@@ -190,18 +190,13 @@ const About = () => {
                 Our <span className="text-fusion-primary">Journey</span>
               </h2>
               <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                In February 2023 they bought EasyGo Thai and started working on refreshing and improving
-                every aspect of the restaurant
-              </p>
-              <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                As a team they are unbeatable; Mai with her years of experience as customer service superstar both in NZ and Thailand,
-                and Gong with 18 years of consistent high standards as chef / head chef in several well-known B.O.P. Asian restaurants ….
-                Both are passionate about what they do, are skilled at their jobs, and are certainly not scared to face the hard work and
-                long hours demanded to be successful in the hospitality industry – and both describe themselves as "perfectionists".
-              </p>
-              <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                EasyGo Thai restaurant will benefit from their efforts, we invite you to come and join the journey
-                and encourage you to give feedback on your experience.
+                Asian Fusion is part of the Garoon Thai group (as is their sister Easy Go Thai restaurant @ the Mount).
+                The Bethlehem shop opened in late 2023 - the location carefully selected to be within range of central
+                Tauranga through Matua to Pyes Pa.
+                At Asian Fusion the same recipes and quality control are used as elsewhere in Garoon Thai locations,
+                in fact the staff regularly rotate between locations, so you can be assured of the best.
+                We do not plan to have dine-in at Asian Fusion, but if you would like to eat top quality Thai cuisine
+                in the comfort of your home (either pickup or delivery) please give us a try.
               </p>
             </div>
             <div className="animate-scale-in">
@@ -248,45 +243,45 @@ const About = () => {
       </section>
 
       {/* Chef Section */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="animate-scale-in">
-              <img 
-                src={chefPortrait} 
-                alt="Chef Somchai - Head Chef at AsianFusion"
-                className="rounded-lg shadow-large w-full h-auto"
-              />
-            </div>
-            <div className="animate-fade-in-up">
-              <h2 className="font-playfair text-4xl md:text-5xl font-bold text-foreground mb-6">
-                Meet Chef <span className="text-fusion-primary">Somchai</span>
-              </h2>
-              <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                Chef Somchai brings over 30 years of culinary expertise to AsianFusion. Born and raised
-                in Bangkok, he learned the art of Thai cooking from his grandmother, who ran a small
-                street food stall in the bustling markets of Thailand.
-              </p>
-              <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                His passion for authentic flavors and dedication to traditional cooking methods has earned 
-                him recognition throughout the culinary community. Chef Somchai personally oversees every 
-                dish that leaves our kitchen, ensuring it meets the highest standards of taste and presentation.
-              </p>
-              <div className="flex flex-wrap gap-4">
-                <div className="bg-fusion-primary-light px-4 py-2 rounded-lg">
-                  <span className="text-fusion-primary font-semibold">30+ Years Experience</span>
-                </div>
-                <div className="bg-fusion-secondary-light px-4 py-2 rounded-lg">
-                  <span className="text-fusion-secondary font-semibold">Bangkok Native</span>
-                </div>
-                <div className="bg-fusion-accent-light px-4 py-2 rounded-lg">
-                  <span className="text-fusion-accent font-semibold">Award Winner</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/*<section className="py-20 bg-background">*/}
+      {/*  <div className="container mx-auto px-4">*/}
+      {/*    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">*/}
+      {/*      <div className="animate-scale-in">*/}
+      {/*        <img */}
+      {/*          src={chefPortrait} */}
+      {/*          alt="Chef Somchai - Head Chef at AsianFusion"*/}
+      {/*          className="rounded-lg shadow-large w-full h-auto"*/}
+      {/*        />*/}
+      {/*      </div>*/}
+      {/*      <div className="animate-fade-in-up">*/}
+      {/*        <h2 className="font-playfair text-4xl md:text-5xl font-bold text-foreground mb-6">*/}
+      {/*          Meet Chef <span className="text-fusion-primary">Somchai</span>*/}
+      {/*        </h2>*/}
+      {/*        <p className="text-lg text-muted-foreground mb-6 leading-relaxed">*/}
+      {/*          Chef Somchai brings over 30 years of culinary expertise to AsianFusion. Born and raised*/}
+      {/*          in Bangkok, he learned the art of Thai cooking from his grandmother, who ran a small*/}
+      {/*          street food stall in the bustling markets of Thailand.*/}
+      {/*        </p>*/}
+      {/*        <p className="text-lg text-muted-foreground mb-6 leading-relaxed">*/}
+      {/*          His passion for authentic flavors and dedication to traditional cooking methods has earned */}
+      {/*          him recognition throughout the culinary community. Chef Somchai personally oversees every */}
+      {/*          dish that leaves our kitchen, ensuring it meets the highest standards of taste and presentation.*/}
+      {/*        </p>*/}
+      {/*        <div className="flex flex-wrap gap-4">*/}
+      {/*          <div className="bg-fusion-primary-light px-4 py-2 rounded-lg">*/}
+      {/*            <span className="text-fusion-primary font-semibold">30+ Years Experience</span>*/}
+      {/*          </div>*/}
+      {/*          <div className="bg-fusion-secondary-light px-4 py-2 rounded-lg">*/}
+      {/*            <span className="text-fusion-secondary font-semibold">Bangkok Native</span>*/}
+      {/*          </div>*/}
+      {/*          <div className="bg-fusion-accent-light px-4 py-2 rounded-lg">*/}
+      {/*            <span className="text-fusion-accent font-semibold">Award Winner</span>*/}
+      {/*          </div>*/}
+      {/*        </div>*/}
+      {/*      </div>*/}
+      {/*    </div>*/}
+      {/*  </div>*/}
+      {/*</section>*/}
 
       {/* Timeline Section */}
       {/*<section className="py-20 bg-fusion-dark">*/}
