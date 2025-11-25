@@ -1,5 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Layout } from "@/components/Layout";
+import Layout from "@/components/Layout";
 import { MapPin, Phone, Mail, Clock, Users, Award, Heart, Utensils } from "lucide-react";
 import { useState, useEffect } from "react";
 import { supabase } from "@/integrations/supabase/client";
