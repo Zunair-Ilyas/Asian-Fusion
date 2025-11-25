@@ -1,11 +1,6 @@
-import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
-import Layout from "@/components/Layout";
+import { Layout } from "@/components/Layout";
 import { MapPin, Phone, Mail, Clock, Users, Award, Heart, Utensils } from "lucide-react";
-import chefPortrait from "../assets/Chef.jpg";
 import { useState, useEffect } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
@@ -32,34 +27,6 @@ const About = () => {
       icon: Utensils,
       title: "Tradition",
       description: "Honoring authentic Thai cooking methods passed down through generations"
-    }
-  ];
-
-  const timeline = [
-    {
-      year: "1998",
-      title: "The Beginning",
-      description: "Founded by Chef Somchai with a dream to share authentic Thai cuisine"
-    },
-    {
-      year: "2005",
-      title: "Recognition",
-      description: "Awarded 'Best Thai Restaurant' by the local culinary association"
-    },
-    {
-      year: "2012",
-      title: "Expansion",
-      description: "Renovated and expanded to accommodate our growing family of guests"
-    },
-    {
-      year: "2020",
-      title: "Innovation",
-      description: "Launched online ordering and delivery to serve our community safely"
-    },
-    {
-      year: "2023",
-      title: "25 Years Strong",
-      description: "Celebrating 25 years of bringing Thailand to your table"
     }
   ];
 
@@ -102,70 +69,6 @@ const About = () => {
     };
     fetchContactInfo();
   }, []);
-
-  // Contact Form State (like News page)
-  const [contactForm, setContactForm] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    subject: "",
-    message: ""
-  });
-  const [sendingMessage, setSendingMessage] = useState(false);
-
-  const handleContactSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    const name = `${contactForm.firstName} ${contactForm.lastName}`.trim();
-    if (!name || !contactForm.email || !contactForm.message) {
-      toast({
-        title: "Missing Information",
-        description: "Please fill in all required fields",
-        variant: "destructive",
-      });
-      return;
-    }
-    if (!contactForm.email.includes('@')) {
-      toast({
-        title: "Invalid Email",
-        description: "Please enter a valid email address",
-        variant: "destructive",
-      });
-      return;
-    }
-    setSendingMessage(true);
-    try {
-      const { error: dbError } = await supabase
-        .from('contact_messages')
-        .insert([
-          {
-            name,
-            email: contactForm.email,
-            message: contactForm.message
-          }
-        ]);
-      if (dbError) {
-        toast({
-          title: "Error",
-          description: "Failed to send message. Please try again later.",
-          variant: "destructive",
-        });
-        return;
-      }
-      toast({
-        title: "Message Sent Successfully!",
-        description: "Your message has been sent and will be reviewed by our team. We'll get back to you soon!",
-      });
-      setContactForm({ firstName: "", lastName: "", email: "", subject: "", message: "" });
-    } catch {
-      toast({
-        title: "Message Saved",
-        description: "Your message has been saved locally. Please contact us directly if urgent.",
-        variant: "destructive",
-      });
-    } finally {
-      setSendingMessage(false);
-    }
-  };
 
   return (
     <Layout>
@@ -335,14 +238,36 @@ const About = () => {
                   <Phone className="h-6 w-6 text-fusion-primary mt-1 flex-shrink-0" />
                   <div>
                     <h3 className="font-semibold text-foreground mb-1">Phone</h3>
-                    <p className="text-muted-foreground">{loadingContactInfo ? "Loading..." : contactInfo.phone || <span className="italic">Not available</span>}</p>
+                    <p className="text-muted-foreground">{
+                      loadingContactInfo ? "Loading..." : contactInfo.phone ? (
+                        <a
+                          href={`tel:${contactInfo.phone.replace(/[^+\d]/g, '')}`}
+                          className="underline hover:text-fusion-primary focus:outline-none focus:ring-2 focus:ring-fusion-primary rounded"
+                        >
+                          {contactInfo.phone}
+                        </a>
+                      ) : (
+                        <span className="italic">Not available</span>
+                      )
+                    }</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-4">
                   <Mail className="h-6 w-6 text-fusion-primary mt-1 flex-shrink-0" />
                   <div>
                     <h3 className="font-semibold text-foreground mb-1">Email</h3>
-                    <p className="text-muted-foreground">{loadingContactInfo ? "Loading..." : contactInfo.email || <span className="italic">Not available</span>}</p>
+                    <p className="text-muted-foreground">{
+                      loadingContactInfo ? "Loading..." : contactInfo.email ? (
+                        <a
+                          href={`mailto:${contactInfo.email.trim()}`}
+                          className="underline hover:text-fusion-primary focus:outline-none focus:ring-2 focus:ring-fusion-primary rounded"
+                        >
+                          {contactInfo.email}
+                        </a>
+                      ) : (
+                        <span className="italic">Not available</span>
+                      )
+                    }</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-4">
@@ -360,41 +285,8 @@ const About = () => {
                 </div>
               </div>
             </div>
-            {/* Contact Form */}
-            {/*<Card className="card-elegant animate-scale-in">*/}
-            {/*  <CardContent className="p-8">*/}
-            {/*    <h3 className="font-playfair text-2xl font-semibold text-foreground mb-6">*/}
-            {/*      Send us a Message*/}
-            {/*    </h3>*/}
-            {/*    <form className="space-y-4" onSubmit={handleContactSubmit}>*/}
-            {/*      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">*/}
-            {/*        <div>*/}
-            {/*          <Label htmlFor="first-name">First Name</Label>*/}
-            {/*          <Input id="first-name" placeholder="Your first name" value={contactForm.firstName} onChange={e => setContactForm(f => ({ ...f, firstName: e.target.value }))} />*/}
-            {/*        </div>*/}
-            {/*        <div>*/}
-            {/*          <Label htmlFor="last-name">Last Name</Label>*/}
-            {/*          <Input id="last-name" placeholder="Your last name" value={contactForm.lastName} onChange={e => setContactForm(f => ({ ...f, lastName: e.target.value }))} />*/}
-            {/*        </div>*/}
-            {/*      </div>*/}
-            {/*      <div>*/}
-            {/*        <Label htmlFor="email">Email</Label>*/}
-            {/*        <Input id="email" type="email" placeholder="your.email@example.com" value={contactForm.email} onChange={e => setContactForm(f => ({ ...f, email: e.target.value }))} />*/}
-            {/*      </div>*/}
-            {/*      <div>*/}
-            {/*        <Label htmlFor="subject">Subject</Label>*/}
-            {/*        <Input id="subject" placeholder="What's this about?" value={contactForm.subject} onChange={e => setContactForm(f => ({ ...f, subject: e.target.value }))} />*/}
-            {/*      </div>*/}
-            {/*      <div>*/}
-            {/*        <Label htmlFor="message">Message</Label>*/}
-            {/*        <Textarea id="message" placeholder="Tell us how we can help you..." rows={4} value={contactForm.message} onChange={e => setContactForm(f => ({ ...f, message: e.target.value }))} />*/}
-            {/*      </div>*/}
-            {/*      <Button className="btn-primary w-full" type="submit" disabled={sendingMessage}>*/}
-            {/*        {sendingMessage ? "Sending..." : "Send Message"}*/}
-            {/*      </Button>*/}
-            {/*    </form>*/}
-            {/*  </CardContent>*/}
-            {/*</Card>*/}
+            {/* Contact Form (currently disabled) */}
+            {/* The contact form has been temporarily removed to avoid type errors for a missing table. */}
           </div>
         </div>
       </section>
