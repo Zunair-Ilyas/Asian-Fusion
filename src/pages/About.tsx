@@ -361,40 +361,40 @@ const About = () => {
               </div>
             </div>
             {/* Contact Form */}
-            <Card className="card-elegant animate-scale-in">
-              <CardContent className="p-8">
-                <h3 className="font-playfair text-2xl font-semibold text-foreground mb-6">
-                  Send us a Message
-                </h3>
-                <form className="space-y-4" onSubmit={handleContactSubmit}>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                      <Label htmlFor="first-name">First Name</Label>
-                      <Input id="first-name" placeholder="Your first name" value={contactForm.firstName} onChange={e => setContactForm(f => ({ ...f, firstName: e.target.value }))} />
-                    </div>
-                    <div>
-                      <Label htmlFor="last-name">Last Name</Label>
-                      <Input id="last-name" placeholder="Your last name" value={contactForm.lastName} onChange={e => setContactForm(f => ({ ...f, lastName: e.target.value }))} />
-                    </div>
-                  </div>
-                  <div>
-                    <Label htmlFor="email">Email</Label>
-                    <Input id="email" type="email" placeholder="your.email@example.com" value={contactForm.email} onChange={e => setContactForm(f => ({ ...f, email: e.target.value }))} />
-                  </div>
-                  <div>
-                    <Label htmlFor="subject">Subject</Label>
-                    <Input id="subject" placeholder="What's this about?" value={contactForm.subject} onChange={e => setContactForm(f => ({ ...f, subject: e.target.value }))} />
-                  </div>
-                  <div>
-                    <Label htmlFor="message">Message</Label>
-                    <Textarea id="message" placeholder="Tell us how we can help you..." rows={4} value={contactForm.message} onChange={e => setContactForm(f => ({ ...f, message: e.target.value }))} />
-                  </div>
-                  <Button className="btn-primary w-full" type="submit" disabled={sendingMessage}>
-                    {sendingMessage ? "Sending..." : "Send Message"}
-                  </Button>
-                </form>
-              </CardContent>
-            </Card>
+            {/*<Card className="card-elegant animate-scale-in">*/}
+            {/*  <CardContent className="p-8">*/}
+            {/*    <h3 className="font-playfair text-2xl font-semibold text-foreground mb-6">*/}
+            {/*      Send us a Message*/}
+            {/*    </h3>*/}
+            {/*    <form className="space-y-4" onSubmit={handleContactSubmit}>*/}
+            {/*      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">*/}
+            {/*        <div>*/}
+            {/*          <Label htmlFor="first-name">First Name</Label>*/}
+            {/*          <Input id="first-name" placeholder="Your first name" value={contactForm.firstName} onChange={e => setContactForm(f => ({ ...f, firstName: e.target.value }))} />*/}
+            {/*        </div>*/}
+            {/*        <div>*/}
+            {/*          <Label htmlFor="last-name">Last Name</Label>*/}
+            {/*          <Input id="last-name" placeholder="Your last name" value={contactForm.lastName} onChange={e => setContactForm(f => ({ ...f, lastName: e.target.value }))} />*/}
+            {/*        </div>*/}
+            {/*      </div>*/}
+            {/*      <div>*/}
+            {/*        <Label htmlFor="email">Email</Label>*/}
+            {/*        <Input id="email" type="email" placeholder="your.email@example.com" value={contactForm.email} onChange={e => setContactForm(f => ({ ...f, email: e.target.value }))} />*/}
+            {/*      </div>*/}
+            {/*      <div>*/}
+            {/*        <Label htmlFor="subject">Subject</Label>*/}
+            {/*        <Input id="subject" placeholder="What's this about?" value={contactForm.subject} onChange={e => setContactForm(f => ({ ...f, subject: e.target.value }))} />*/}
+            {/*      </div>*/}
+            {/*      <div>*/}
+            {/*        <Label htmlFor="message">Message</Label>*/}
+            {/*        <Textarea id="message" placeholder="Tell us how we can help you..." rows={4} value={contactForm.message} onChange={e => setContactForm(f => ({ ...f, message: e.target.value }))} />*/}
+            {/*      </div>*/}
+            {/*      <Button className="btn-primary w-full" type="submit" disabled={sendingMessage}>*/}
+            {/*        {sendingMessage ? "Sending..." : "Send Message"}*/}
+            {/*      </Button>*/}
+            {/*    </form>*/}
+            {/*  </CardContent>*/}
+            {/*</Card>*/}
           </div>
         </div>
       </section>
