@@ -193,9 +193,9 @@ const Index = () => {
               <Button className="btn-accent" size="xl">
                 <a href="https://www.ubereats.com/store/asian-fusion/SI3nHm9vUZOSRgWETTbP4w">Order Delivery</a>
               </Button>
-              {/*<Button className="btn-outline" size="xl">*/}
-              {/*  <a href="https://order.asianfusion.nz/products">Order Pickup</a>*/}
-              {/*</Button>*/}
+              <Button className="btn-outline" size="xl">
+                <a href="https://order.asianfusion.nz/products">Order Pickup</a>
+              </Button>
             </div>
           </div>
         </div>
