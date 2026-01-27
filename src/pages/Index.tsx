@@ -84,11 +84,29 @@ const defaultTestimonials = [
   }
 ];
 
+const DELIVERY_BUTTON_VISIBLE_KEY = "delivery_button_visible";
+const PICKUP_BUTTON_VISIBLE_KEY = "pickup_button_visible";
+
+const readButtonVisibility = (key: string) => {
+  try {
+    const storedValue = localStorage.getItem(key);
+    if (storedValue === null) {
+      return true; // Default to visible
+    }
+    return storedValue === "true";
+  } catch (error) {
+    console.error(`Failed to read ${key}:`, error);
+    return true;
+  }
+};
+
 const Index = () => {
   const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
   const [stats, setStats] = useState<StatItem[]>([]);
   const [features, setFeatures] = useState<Feature[]>([]);
   const [loading, setLoading] = useState(true);
+  const [showDeliveryButton, setShowDeliveryButton] = useState(true);
+  const [showPickupButton, setShowPickupButton] = useState(true);
   const { toast } = useToast();
 
   const fetchData = useCallback(async () => {
@@ -132,6 +150,22 @@ const Index = () => {
   useEffect(() => {
     fetchData();
   }, [fetchData]);
+
+  useEffect(() => {
+    setShowDeliveryButton(readButtonVisibility(DELIVERY_BUTTON_VISIBLE_KEY));
+    setShowPickupButton(readButtonVisibility(PICKUP_BUTTON_VISIBLE_KEY));
+
+    const handleStorage = (event: StorageEvent) => {
+      if (event.key === DELIVERY_BUTTON_VISIBLE_KEY) {
+        setShowDeliveryButton(readButtonVisibility(DELIVERY_BUTTON_VISIBLE_KEY));
+      } else if (event.key === PICKUP_BUTTON_VISIBLE_KEY) {
+        setShowPickupButton(readButtonVisibility(PICKUP_BUTTON_VISIBLE_KEY));
+      }
+    };
+
+    window.addEventListener("storage", handleStorage);
+    return () => window.removeEventListener("storage", handleStorage);
+  }, []);
 
   const getIcon = (iconName: string) => {
     const iconMap: { [key: string]: React.ElementType } = {
@@ -190,12 +224,16 @@ const Index = () => {
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
-              <Button className="btn-accent" size="xl">
-                <a href="https://www.ubereats.com/store/asian-fusion/SI3nHm9vUZOSRgWETTbP4w">Order Delivery</a>
-              </Button>
-              <Button className="btn-outline" size="xl">
-                <a href="https://order.asianfusion.nz/products">Order Pickup</a>
-              </Button>
+              {showDeliveryButton && (
+                <Button className="btn-accent" size="xl">
+                  <a href="https://www.ubereats.com/store/asian-fusion/SI3nHm9vUZOSRgWETTbP4w">Order Delivery</a>
+                </Button>
+              )}
+              {showPickupButton && (
+                <Button className="btn-outline" size="xl">
+                  <a href="https://order.asianfusion.nz/products">Order Pickup</a>
+                </Button>
+              )}
             </div>
           </div>
         </div>

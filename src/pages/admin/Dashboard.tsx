@@ -3,6 +3,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
+import { Switch } from "@/components/ui/switch";
+import { Label } from "@/components/ui/label";
 import { useAuth } from "@/hooks/useAuth";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
@@ -38,6 +40,65 @@ const Dashboard = () => {
     subscribers: 0,
     profiles: 0
   });
+  const [deliveryButtonVisible, setDeliveryButtonVisible] = useState(true);
+  const [pickupButtonVisible, setPickupButtonVisible] = useState(true);
+
+  const DELIVERY_BUTTON_VISIBLE_KEY = "delivery_button_visible";
+  const PICKUP_BUTTON_VISIBLE_KEY = "pickup_button_visible";
+
+  const handleDeliveryButtonToggle = (checked: boolean) => {
+    try {
+      localStorage.setItem(DELIVERY_BUTTON_VISIBLE_KEY, checked.toString());
+      setDeliveryButtonVisible(checked);
+
+      // Trigger storage event for other tabs/windows
+      window.dispatchEvent(new StorageEvent('storage', {
+        key: DELIVERY_BUTTON_VISIBLE_KEY,
+        newValue: checked.toString(),
+        oldValue: deliveryButtonVisible.toString(),
+        url: window.location.href
+      }));
+
+      toast({
+        title: "Settings Updated",
+        description: `Delivery button is now ${checked ? 'visible' : 'hidden'} on the home page`,
+      });
+    } catch (error) {
+      console.error('Failed to update delivery button visibility:', error);
+      toast({
+        title: "Error",
+        description: "Failed to update delivery button settings",
+        variant: "destructive",
+      });
+    }
+  };
+
+  const handlePickupButtonToggle = (checked: boolean) => {
+    try {
+      localStorage.setItem(PICKUP_BUTTON_VISIBLE_KEY, checked.toString());
+      setPickupButtonVisible(checked);
+
+      // Trigger storage event for other tabs/windows
+      window.dispatchEvent(new StorageEvent('storage', {
+        key: PICKUP_BUTTON_VISIBLE_KEY,
+        newValue: checked.toString(),
+        oldValue: pickupButtonVisible.toString(),
+        url: window.location.href
+      }));
+
+      toast({
+        title: "Settings Updated",
+        description: `Pickup button is now ${checked ? 'visible' : 'hidden'} on the home page`,
+      });
+    } catch (error) {
+      console.error('Failed to update pickup button visibility:', error);
+      toast({
+        title: "Error",
+        description: "Failed to update pickup button settings",
+        variant: "destructive",
+      });
+    }
+  };
 
   // Update stats with real-time data from localStorage
   useEffect(() => {
@@ -68,6 +129,23 @@ const Dashboard = () => {
     const interval = setInterval(updateStats, 5000);
     
     return () => clearInterval(interval);
+  }, []);
+
+  // Initialize order button visibility from localStorage
+  useEffect(() => {
+    try {
+      const deliveryStored = localStorage.getItem(DELIVERY_BUTTON_VISIBLE_KEY);
+      const pickupStored = localStorage.getItem(PICKUP_BUTTON_VISIBLE_KEY);
+
+      if (deliveryStored !== null) {
+        setDeliveryButtonVisible(deliveryStored === "true");
+      }
+      if (pickupStored !== null) {
+        setPickupButtonVisible(pickupStored === "true");
+      }
+    } catch (error) {
+      console.error('Error reading order button visibility:', error);
+    }
   }, []);
 
   useEffect(() => {
@@ -232,6 +310,45 @@ const Dashboard = () => {
                     <Settings className="h-6 w-6" />
                     <span>Update Settings</span>
                   </Button>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Home Page Controls */}
+            <Card className="card-elegant border-thai-gold/20">
+              <CardHeader>
+                <CardTitle className="font-playfair text-xl">Home Page Controls</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="flex items-center justify-between p-3 bg-muted rounded-lg">
+                  <div className="space-y-1">
+                    <Label htmlFor="delivery-button-toggle" className="text-base font-medium">
+                      Delivery Button Visibility
+                    </Label>
+                    <p className="text-sm text-muted-foreground">
+                      Show or hide the "Order Delivery" button on the home page
+                    </p>
+                  </div>
+                  <Switch
+                    id="delivery-button-toggle"
+                    checked={deliveryButtonVisible}
+                    onCheckedChange={handleDeliveryButtonToggle}
+                  />
+                </div>
+                <div className="flex items-center justify-between p-3 bg-muted rounded-lg">
+                  <div className="space-y-1">
+                    <Label htmlFor="pickup-button-toggle" className="text-base font-medium">
+                      Pickup Button Visibility
+                    </Label>
+                    <p className="text-sm text-muted-foreground">
+                      Show or hide the "Order Pickup" button on the home page
+                    </p>
+                  </div>
+                  <Switch
+                    id="pickup-button-toggle"
+                    checked={pickupButtonVisible}
+                    onCheckedChange={handlePickupButtonToggle}
+                  />
                 </div>
               </CardContent>
             </Card>
